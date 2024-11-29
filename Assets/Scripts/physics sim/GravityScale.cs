@@ -2,30 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GravityScale : MonoBehaviour
 {
     public float gravityScale = 9.8f; 
-    float value;
-    [SerializeField] Image bar;
+    [SerializeField] Slider slider;
+    public TMP_Text text;
+    
 
-    void Start(){
+    public void ChangeGravity(){
 
-        Physics2D.gravity = new Vector2(0, -gravityScale);
+        gravityScale = -slider.value;
+        Physics2D.gravity = new Vector2(0f,gravityScale);
+
+        text.text = gravityScale.ToString();
     }
 
-    void Update(){
 
-        Physics2D.gravity = new Vector2(0, -gravityScale);
-
-        if(gravityScale < 0)  {value = 1;}
-        else{value = (float)gravityScale/19.6f;}
-
-            bar.fillAmount = value;
-    }
-
-    public void mars(){
-
-        gravityScale = 3.71f;
-    }
 }

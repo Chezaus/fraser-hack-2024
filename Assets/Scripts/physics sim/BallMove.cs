@@ -14,7 +14,7 @@ public class BallMove : MonoBehaviour
 
         cooldown += Time.deltaTime;
 
-        if(cooldown >= 1)
+        if(cooldown >= 0.1)
         {
             Vector3 mousePosition = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,Camera.main.ScreenToWorldPoint(Input.mousePosition).y,0);
 
